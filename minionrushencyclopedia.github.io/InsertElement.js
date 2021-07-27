@@ -20,7 +20,7 @@
 		function CreateTabLinks() {
 			TabLinks=document.getElementById('tablinks');
 			TabLinks.innerHTML = 
-			'<a href= "../Home/index.html" class="tablink"> Home </a> \
+			'<a href= "../Home/" class="tablink"> Home </a> \
 			<a href = "https://minionrushencyclopedia.github.io/table-of-contents/" class="tablink"> Table of Contents </a> \
 			<a href = "https://minionrushencyclopedia.github.io/about-us/" class="tablink"> About Us </a>';
 		}
