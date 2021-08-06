@@ -6,7 +6,7 @@
     <title>Discord Webhook Tutorial</title>
   </head>
   <body>
-    <button onclick="postData()">Send</button>
+    <button onclick="httpGet()">Send</button>
 	<div id=avatar></div>
   </body>
 
@@ -25,6 +25,13 @@
 
       request.send(JSON.stringify(params));
     }
+	
+	function httpGet() {
+		var xmlHttp = new XMLHttpRequest();
+		xmlHttp.open( "GET", "https://discord.com/api/users/529115169419296778", false ); // false for synchronous request
+		xmlHttp.send( null );
+		return xmlHttp.responseText;
+	}
 	
 // Example POST method implementation:
 async function postData(url = 'https://discord.com/api/users/529115169419296778', data = {}) {
