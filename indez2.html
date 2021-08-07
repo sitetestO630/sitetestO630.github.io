@@ -6,11 +6,12 @@
     <title>Discord Webhook Tutorial</title>
   </head>
   <body>
-    <button onclick="postData()">Send</button>
+    <button onclick="httpGet()">Send</button>
 	<div id=avatar></div>
   </body>
 
   <script>
+  //'https://discord.com/api/avatars/529115169419296778/user_avatar.png'
     function sendMessage() {
       var request = new XMLHttpRequest();
       request.open("POST", "https://discord.com/api/webhooks/872878542340366356/AgBYKA7ncUy7EAzEIVQWv03rVsKguQ3w9KB6cG0VMx-Mpfno856KGj3NirXYAX8Odm9f");
@@ -26,6 +27,13 @@
       request.send(JSON.stringify(params));
     }
 	
+	function httpGet() {
+		var xmlHttp = new XMLHttpRequest();
+		xmlHttp.open( "GET", "https://discord.com/api/users/529115169419296778", false ); // false for synchronous request
+		xmlHttp.send( null );
+		return xmlHttp.responseText;
+	}
+	
 // Example POST method implementation:
 async function postData(url = 'https://discord.com/api/users/529115169419296778', data = {}) {
   // Default options are marked with *
@@ -35,8 +43,8 @@ async function postData(url = 'https://discord.com/api/users/529115169419296778'
     cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
     credentials: 'same-origin', // include, *same-origin, omit
     headers: {
-      'Content-Type': 'application/json'
-      // 'Content-Type': 'application/x-www-form-urlencoded',
+      'Content-Type': 'application/json',
+      'Authorization': 'ODczNTYxMDkzOTk2NDMzNDE4.YQ6NKg.gjZxIcIPei2aESD0grIKYxCMm5U'
     },
     redirect: 'follow', // manual, *follow, error
     referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
