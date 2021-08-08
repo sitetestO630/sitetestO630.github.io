@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Webhook Tutorial</title>
+  </head>
+  <body>
+    <button onclick="Fetch()">Send</button>
+	<div id=avatar></div>
+  </body>
+
+  <script>
+	function Fetch() {
+	var myHeaders = new Headers();
+	myHeaders.append('Authorization', 'secret/YOUR_SECRET_NAME');
+
+		var requestOptions = {
+		  method: 'GET',
+		  headers: myHeaders,
+		  redirect: 'follow'
+		};
+
+	fetch("https://discordapp.com/api/users/589881767779893252", requestOptions)
+	  .then(response => response.json())
+	  
+	  .then(json => {
+			const AVATAR = json.avatar
+			console.log(AVATAR)
+			
+			TabLinks=document.getElementById('avatar');
+			TabLinks.innerHTML = "<img src=https://cdn.discordapp.com/avatars/589881767779893252/" + AVATAR + ".png?size=256 style='width: 256px; height:256px;'> </img>"
+		})
+	  
+	  .catch(error => console.log('error', error));
+		}
+  </script>
+</html>
