@@ -14,7 +14,8 @@
   <script>
 	function Fetch() {
 	var myHeaders = new Headers();
-	myHeaders.append('Authorization', ${{secret.YOUR_SECRET_NAME}});
+	var secret = ${{secret.YOUR_SECRET_NAME}};
+	myHeaders.append('Authorization', secret);
 
 		var requestOptions = {
 		  method: 'GET',
